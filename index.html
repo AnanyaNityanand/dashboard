@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful UI Form</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <!-- Background Blurred Gradient Blobs -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <!-- Glass Card -->
+    <div class="glass-card">
+        <h1>User Registration</h1>
+        <p class="tagline">A modern, elegant form experience</p>
+
+        <form id="userForm" action="/submit" method="POST">
+
+            <div class="field">
+                <label>Full Name</label>
+                <input type="text" name="fullname" required autocomplete="off">
+            </div>
+
+            <div class="field">
+                <label>Email</label>
+                <input type="email" name="email" required autocomplete="off">
+            </div>
+
+            <div class="two-fields">
+                <div class="field">
+                    <label>Age</label>
+                    <input type="number" name="age" min="1" max="120" required>
+                </div>
+
+                <div class="field">
+                    <label>Gender</label>
+                    <select name="gender" required>
+                        <option value="">Choose</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Message</label>
+                <textarea name="message" rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-glow">Submit</button>
+        </form>
+
+        <p id="errorText" class="error"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById("userForm");
+        const err = document.getElementById("errorText");
+
+        form.addEventListener("submit", (e) => {
+            const inputs = form.querySelectorAll("input, select, textarea");
+            let invalid = false;
+
+            inputs.forEach(f => {
+                if (!f.value.trim()) invalid = true;
+            });
+
+            if (invalid) {
+                e.preventDefault();
+                err.textContent = "⚠ Please fill all fields properly.";
+            }
+        });
+    </script>
+</body>
+</html>

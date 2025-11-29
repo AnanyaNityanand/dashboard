@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submitted Details</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="result-body">
+
+    <!-- Background effect -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <div class="glass-card result-card">
+        <h2 class="result-title">✔ Submission Successful</h2>
+
+        <div class="details-box">
+            <p><strong>Name:</strong> <span><%= info.fullname %></span></p>
+            <p><strong>Email:</strong> <span><%= info.email %></span></p>
+            <p><strong>Age:</strong> <span><%= info.age %></span></p>
+            <p><strong>Gender:</strong> <span><%= info.gender %></span></p>
+            <p><strong>Message:</strong> <span><%= info.message %></span></p>
+        </div>
+
+        <a href="/" class="back-btn">← Go Back</a>
+    </div>
+
+</body>
+</html>
